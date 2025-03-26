@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LandingController {
 
     @RequestMapping("/")
-    public String getLandingPage() {
-        return "landingPage";
+    public String getLandingPagePresenter() {
+        return "LandingPagePresenter";
     }
 
 }
