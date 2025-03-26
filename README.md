@@ -1,2 +1,2 @@
 # pac-architecture
-This project demonstrate PAC architecture
+This project demonstrates PAC architecture
