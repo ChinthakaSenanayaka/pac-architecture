@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,25 +18,19 @@
     
     <table>
         <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Contact</th>
-          <th>Country</th>
+          <th>Order ID</th>
+          <th>Customer Name</th>
+          <th>Products</th>
         </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-        </tr>
-        <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
-        </tr>
+        <c:forEach items="${orders}" var="order">
+          <tr>      
+              <td>${order.id}</td>
+              <td>${order.customer.firstName}</td>
+              <td>${order.products[0].name}</td>
+          </tr>
+        </c:forEach>
       </table>
     </p>
-  
-    <p>Order: ${orders}</p>
 
 </body>
 </html> 

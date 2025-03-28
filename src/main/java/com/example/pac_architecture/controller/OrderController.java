@@ -25,4 +25,8 @@ public class OrderController {
         }
     }
 
+    public void createOrder(Order order) {
+        orderAbstraction.createOrder(order);
+    }
+
 }
