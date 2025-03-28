@@ -6,7 +6,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -70,6 +73,24 @@ public class LandingPageController {
         request.setAttribute("products", products);
         
         return "ProductPresenter";
+    }
+
+    @PostMapping("/order")
+    public @ResponseBody String createOrder(@RequestBody Order order) {
+
+        System.out.println("Create order Id: " + order.getId());
+        orderController.createOrder(order);
+
+        return "Order Created";
+    }
+
+    @PostMapping("/product")
+    public @ResponseBody String createProduct(@RequestBody Product product) {
+
+        System.out.println("Create product Id: " + product.getId());
+        productController.createProduct(product);
+        
+        return "Product Created";
     }
 
 }

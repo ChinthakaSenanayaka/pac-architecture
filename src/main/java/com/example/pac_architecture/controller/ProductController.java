@@ -24,5 +24,9 @@ public class ProductController {
         }
     }
 
+    public void createProduct(Product product) {
+        productAbstraction.createProduct(product);
+    }
+
 }
 

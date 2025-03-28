@@ -37,4 +37,8 @@ public class OrderAbstraction {
         .collect(Collectors.toList());
     }
 
+    public void createOrder(Order order) {
+        dbConnection.getOrders().add(order);
+    }
+
 }

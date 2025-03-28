@@ -8,6 +8,16 @@
             }
         </style>
         <script>
+            window.setInterval("reloadIFrame30k();", 30000);
+            window.setInterval("reloadIFrame500();", 500);
+
+            function reloadIFrame30k() {
+                document.getElementById('ProductsViewId').contentWindow.location.reload();
+            }
+
+            function reloadIFrame500() {
+                document.getElementById('OrdersViewId').contentWindow.location.reload();
+            }
         </script> 
     </head>
     <body>
@@ -16,9 +26,9 @@
     <p>Logged in user ID: ${user.id}, name: ${user.firstName} ${user.lastName}</p>
     <p>User role: ${user.userType}</p>
         
-    <iframe src="/product/${user.id}" title="Products"  width="500" height="500"></iframe> 
+    <iframe src="/product/${user.id}" title="Products" id="ProductsViewId" width="45%" height="500"></iframe> 
 
-    <iframe src="/order/${user.id}" title="Orders"  width="500" height="500"></iframe> 
+    <iframe src="/order/${user.id}" title="Orders" id="OrdersViewId" width="45%" height="500"></iframe> 
 
     </body>
 </html>

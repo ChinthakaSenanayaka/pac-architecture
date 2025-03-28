@@ -30,4 +30,8 @@ public class ProductAbstraction {
             .collect(Collectors.toList());
     }
 
+    public void createProduct(Product product) {
+         dbConnection.getProducts().add(product);
+    }
+
 }
