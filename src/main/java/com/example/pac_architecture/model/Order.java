@@ -1,18 +1,18 @@
 package com.example.pac_architecture.model;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Product {
+public class Order {
 
     private int id;
 
-    private String name;
+    private User customer;
 
-    private int quantity;
-
-    private User seller;
+    private List<Product> products;
 
 }
