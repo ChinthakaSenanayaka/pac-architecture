@@ -12,25 +12,40 @@ import com.example.pac_architecture.model.Product;
 import com.example.pac_architecture.model.User;
 import com.example.pac_architecture.model.UserType;
 
+/**
+ * Simulated database storage using in-memory lists.  
+ * Provides initialization and access to dummy users, products, and orders.
+ */
 @Component
 public class DummyDBData {
 
+    /** List of customers in the system. */
     private List<User> customers;
 
+    /** List of sellers in the system. */
     private List<User> sellers;
 
+    /** Combined list of all users (customers and sellers). */
     private List<User> users;
 
+    /** List of available products. */
     private List<Product> products;
 
+    /** List of recorded orders. */
     private List<Order> orders;
 
+    /**
+     * Initializes the dummy database by populating users, products, and orders.
+     */
     public void init() {
         initUsers();
         initProducts();
         initOrders();
     }
 
+    /**
+     * Initializes dummy users (customers and sellers).
+     */
     private void initUsers() {
         customers = new ArrayList<>();
         customers.add(
@@ -52,6 +67,9 @@ public class DummyDBData {
                          .collect(Collectors.toList());
     }
 
+    /**
+     * Initializes dummy products associated with sellers.
+     */
     private void initProducts() {
         products = new ArrayList<>();
         products.add(
@@ -65,6 +83,10 @@ public class DummyDBData {
             new Product(3, "Product3", 100, sellers.get(1)));
     }
 
+    /**
+     * Initializes dummy orders made by customers.
+     * Each order contains multiple products from different sellers.
+     */
     private void initOrders() {
         orders = new ArrayList<>();
 
@@ -87,22 +109,47 @@ public class DummyDBData {
             new Order(2, customers.get(1), productsForOrder2));
     }
 
+    /**
+     * Retrieves the list of all users (customers and sellers).
+     * 
+     * @return A list of all users.
+     */
     public List<User> getUser() {
         return users;
     }
 
+    /**
+     * Retrieves the list of sellers.
+     * 
+     * @return A list of sellers.
+     */
     public List<User> getSellers() {
         return sellers;
     }
 
+    /**
+     * Retrieves the list of customers.
+     * 
+     * @return A list of customers.
+     */
     public List<User> getCustomers() {
         return customers;
     }
 
+    /**
+     * Retrieves the list of available products.
+     * 
+     * @return A list of products.
+     */
     public List<Product> getProducts() {
         return products;
     }
 
+    /**
+     * Retrieves the list of recorded orders.
+     * 
+     * @return A list of orders.
+     */
     public List<Order> getOrders() {
         return orders;
     }
