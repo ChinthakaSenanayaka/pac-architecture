@@ -47,40 +47,48 @@ public class DummyDBData {
      * Initializes dummy users (customers and sellers).
      */
     private void initUsers() {
-        customers = new ArrayList<>();
-        customers.add(
-            new User(0, UserType.CUSTOMER, "custFName0", 
-            "custLName0", "custAddr0", "custAccNo0"));
-        customers.add(
-            new User(2, UserType.CUSTOMER, "custFName1", 
-            "custLName1", "custAddr1", "custAccNo1"));
-        
-        sellers = new ArrayList<>();
-        sellers.add(
-            new User(1, UserType.SELLER, "sellerFName0", 
-            "sellerLName0", "sellerAddr0", "sellerAccNo0"));
-        sellers.add(
-            new User(3, UserType.SELLER, "sellerFName1", 
-            "sellerLName1", "sellerAddr1", "sellerAccNo1"));
+        if(customers == null) {
+            customers = new ArrayList<>();
+            customers.add(
+                new User(0, UserType.CUSTOMER, "custFName0", 
+                "custLName0", "custAddr0", "custAccNo0"));
+            customers.add(
+                new User(2, UserType.CUSTOMER, "custFName1", 
+                "custLName1", "custAddr1", "custAccNo1"));
+        }
 
-        users = Stream.concat(customers.stream(), sellers.stream())
+        if(sellers == null) {
+            sellers = new ArrayList<>();
+            sellers.add(
+                new User(1, UserType.SELLER, "sellerFName0", 
+                "sellerLName0", "sellerAddr0", "sellerAccNo0"));
+            sellers.add(
+                new User(3, UserType.SELLER, "sellerFName1", 
+                "sellerLName1", "sellerAddr1", "sellerAccNo1"));
+        }
+
+        if(users == null) {
+            users = Stream.concat(customers.stream(), sellers.stream())
                          .collect(Collectors.toList());
+        }
     }
 
     /**
      * Initializes dummy products associated with sellers.
      */
     private void initProducts() {
-        products = new ArrayList<>();
-        products.add(
-            new Product(0, "Product0", 100, sellers.get(0)));
-        products.add(
-            new Product(1, "Product1", 100, sellers.get(0)));
-        
-        products.add(
-            new Product(2, "Product2", 100, sellers.get(1)));
-        products.add(
-            new Product(3, "Product3", 100, sellers.get(1)));
+        if(products == null) {
+            products = new ArrayList<>();
+            products.add(
+                new Product(0, "Product0", 100, sellers.get(0)));
+            products.add(
+                new Product(1, "Product1", 100, sellers.get(0)));
+            
+            products.add(
+                new Product(2, "Product2", 100, sellers.get(1)));
+            products.add(
+                new Product(3, "Product3", 100, sellers.get(1)));
+        }
     }
 
     /**
@@ -88,25 +96,27 @@ public class DummyDBData {
      * Each order contains multiple products from different sellers.
      */
     private void initOrders() {
-        orders = new ArrayList<>();
+        if(orders == null) {
+            orders = new ArrayList<>();
 
-        List<Product> productsForOrder0 = new ArrayList<>();
-        productsForOrder0.add(products.get(0));
-        productsForOrder0.add(products.get(3));
-        orders.add(
-            new Order(0, customers.get(0), productsForOrder0));
+            List<Product> productsForOrder0 = new ArrayList<>();
+            productsForOrder0.add(products.get(0));
+            productsForOrder0.add(products.get(3));
+            orders.add(
+                new Order(0, customers.get(0), productsForOrder0));
 
-        List<Product> productsForOrder1 = new ArrayList<>();
-        productsForOrder1.add(products.get(1));
-        productsForOrder1.add(products.get(3));
-        orders.add(
-            new Order(1, customers.get(1), productsForOrder1));
+            List<Product> productsForOrder1 = new ArrayList<>();
+            productsForOrder1.add(products.get(1));
+            productsForOrder1.add(products.get(3));
+            orders.add(
+                new Order(1, customers.get(1), productsForOrder1));
 
-        List<Product> productsForOrder2 = new ArrayList<>();
-        productsForOrder2.add(products.get(1));
-        productsForOrder2.add(products.get(2));
-        orders.add(
-            new Order(2, customers.get(1), productsForOrder2));
+            List<Product> productsForOrder2 = new ArrayList<>();
+            productsForOrder2.add(products.get(1));
+            productsForOrder2.add(products.get(2));
+            orders.add(
+                new Order(2, customers.get(1), productsForOrder2));
+        }
     }
 
     /**
