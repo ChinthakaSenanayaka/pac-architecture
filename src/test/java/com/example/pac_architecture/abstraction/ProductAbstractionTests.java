@@ -18,7 +18,7 @@ import java.util.List;
 public class ProductAbstractionTests {
 
     @Autowired
-    private DummyDBData dummyDBData;
+    private DummyDBData dbData;
 
     @Autowired
 	private LandingPageAbstraction landingPageAbstraction;
@@ -28,7 +28,7 @@ public class ProductAbstractionTests {
 
     @BeforeEach
     void beforeEachTest() {
-        dummyDBData.init();
+        dbData.init();
     }
 
     @Test
@@ -40,8 +40,9 @@ public class ProductAbstractionTests {
     @Test
 	void getAllProductsForCustomerTest() throws Exception {
         List<Product> products = productAbstraction.getAllProducts();
-        assertEquals("Product0", products.get(0).getName());
-        assertEquals("seller 2", products.get(0).getSeller().getFirstName());
+        assertEquals(dbData.getProducts().get(0).getName(), products.get(0).getName());
+        assertEquals(dbData.getSellers().get(0).getFirstName(), 
+                    products.get(0).getSeller().getFirstName());
 	}
 
     // Test retrieving products listed by a seller for the seller sub-view
@@ -50,7 +51,7 @@ public class ProductAbstractionTests {
         int sellerId = 3;
         User seller = landingPageAbstraction.getUser(sellerId);
         List<Product> productsForSeller = productAbstraction.getProductsForSeller(seller);
-        assertEquals("Product2", productsForSeller.get(0).getName());
+        assertEquals(dbData.getProducts().get(2).getName(), productsForSeller.get(0).getName());
         assertEquals(sellerId, productsForSeller.get(0).getSeller().getId());
 	}
 
@@ -64,7 +65,7 @@ public class ProductAbstractionTests {
         productAbstraction.createProduct(product);
         List<Product> productsForSeller = productAbstraction.getProductsForSeller(seller);
         int productIndex = productsForSeller.size() - 1;
-        assertEquals("Product4", productsForSeller.get(productIndex).getName());
+        assertEquals(product.getName(), productsForSeller.get(productIndex).getName());
         assertEquals(sellerId, productsForSeller.get(productIndex).getSeller().getId());
 	}
 

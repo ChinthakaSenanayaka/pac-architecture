@@ -20,7 +20,7 @@ import java.util.List;
 public class OrderAbstractionTests {
 
     @Autowired
-    private DummyDBData dummyDBData;
+    private DummyDBData dbData;
 
     @Autowired
 	private LandingPageAbstraction landingPageAbstraction;
@@ -30,7 +30,7 @@ public class OrderAbstractionTests {
 
     @BeforeEach
     void beforeEachTest() {
-        dummyDBData.init();
+        dbData.init();
     }
 
     @Test
@@ -45,7 +45,8 @@ public class OrderAbstractionTests {
         User customer = landingPageAbstraction.getUser(customerId);
         List<Order> orders = orderAbstraction.getOrdersForCustomer(customer);
         assertEquals(customerId, orders.get(0).getCustomer().getId());
-        assertEquals("Product0", orders.get(0).getProducts().get(0).getName());
+        assertEquals(dbData.getProducts().get(0).getName(), 
+                    orders.get(0).getProducts().get(0).getName());
 	}
 
     // Test retrieving orders made to a seller for the seller sub-view
@@ -74,12 +75,12 @@ public class OrderAbstractionTests {
         List<Order> ordersForCustomer = orderAbstraction.getOrdersForCustomer(customer);
         int orderIndex = ordersForCustomer.size() - 1;
         assertEquals(customerId, ordersForCustomer.get(orderIndex).getCustomer().getId());
-        assertEquals("Product4", 
+        assertEquals(product.getName(), 
                 ordersForCustomer.get(orderIndex).getProducts().get(0).getName());
         
         List<Order> ordersForSeller = orderAbstraction.getOrdersForSeller(seller);
         orderIndex = ordersForSeller.size() - 1;
-        assertEquals("Product4", ordersForSeller.get(orderIndex).getProducts().get(0).getName());
+        assertEquals(product.getName(), ordersForSeller.get(orderIndex).getProducts().get(0).getName());
         assertEquals(sellerId, ordersForSeller.get(orderIndex).getProducts().get(0).getSeller().getId());
 	}
 

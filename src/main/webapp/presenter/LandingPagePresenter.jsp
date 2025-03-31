@@ -17,14 +17,13 @@
         </script> 
     </head>
     <body>
-
-    <p>This is the sample landing page presenter</p>
-    <p>Logged in user ID: ${user.id}, name: ${user.firstName} ${user.lastName}</p>
-    <p>User role: ${user.userType}</p>
+    
+    <p><b style="font-size:200%">Welcome ${user.firstName} ${user.lastName}</b></p>
+    <p>Your user ID: ${user.id} and role: ${user.userType}</p>
         
-    <iframe src="/product/${user.id}" title="Products" id="ProductsViewId" width="45%" height="500"></iframe> 
+    <iframe src="/product/${user.id}" title="Products" id="ProductsViewId" width="48%" height="600"></iframe> 
 
-    <iframe src="/order/${user.id}" title="Orders" id="OrdersViewId" width="45%" height="500"></iframe> 
+    <iframe src="/order/${user.id}" title="Orders" id="OrdersViewId" width="48%" height="600"></iframe> 
 
     </body>
 </html>
