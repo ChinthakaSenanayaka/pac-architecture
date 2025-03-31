@@ -33,9 +33,9 @@ class ProductControllerTests {
 				String.class))
 				.contains("This is the sample product presenter")
 				.contains("Product0")
-				.contains("sellerFName0")
+				.contains("seller 2")
 				.contains("Product1")
-				.doesNotContain("sellerFName1");
+				.contains("seller 3");
 	}
 
 	// Tests presenting the product sub-page by the controller with all the products from all the sellers
@@ -45,9 +45,9 @@ class ProductControllerTests {
 				String.class))
 				.contains("This is the sample product presenter")
 				.contains("Product0")
-				.contains("sellerFName0")
-				.contains("Product3")
-				.contains("sellerFName1");
+				.contains("seller 2")
+				.contains("Product1")
+				.doesNotContain("seller 3");
 	}
 
 }

@@ -50,21 +50,21 @@ public class DummyDBData {
         if(customers == null) {
             customers = new ArrayList<>();
             customers.add(
-                new User(0, UserType.CUSTOMER, "custFName0", 
-                "custLName0", "custAddr0", "custAccNo0"));
+                new User(0, UserType.CUSTOMER, "customer 0", 
+                "Doe", "customer address 0", "123456"));
             customers.add(
-                new User(2, UserType.CUSTOMER, "custFName1", 
-                "custLName1", "custAddr1", "custAccNo1"));
+                new User(1, UserType.CUSTOMER, "customer 1", 
+                "Williams", "customer address 1", "234567"));
         }
 
         if(sellers == null) {
             sellers = new ArrayList<>();
             sellers.add(
-                new User(1, UserType.SELLER, "sellerFName0", 
-                "sellerLName0", "sellerAddr0", "sellerAccNo0"));
+                new User(2, UserType.SELLER, "seller 2", 
+                "Taylor", "seller address 2", "345678"));
             sellers.add(
-                new User(3, UserType.SELLER, "sellerFName1", 
-                "sellerLName1", "sellerAddr1", "sellerAccNo1"));
+                new User(3, UserType.SELLER, "seller 3", 
+                "Wilson", "sellerAddr1", "456789"));
         }
 
         if(users == null) {
