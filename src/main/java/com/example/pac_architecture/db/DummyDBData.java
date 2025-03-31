@@ -50,21 +50,21 @@ public class DummyDBData {
         if(customers == null) {
             customers = new ArrayList<>();
             customers.add(
-                new User(0, UserType.CUSTOMER, "customer 0", 
+                new User(0, UserType.CUSTOMER, "John", 
                 "Doe", "customer address 0", "123456"));
             customers.add(
-                new User(1, UserType.CUSTOMER, "customer 1", 
+                new User(1, UserType.CUSTOMER, "Serena", 
                 "Williams", "customer address 1", "234567"));
         }
 
         if(sellers == null) {
             sellers = new ArrayList<>();
             sellers.add(
-                new User(2, UserType.SELLER, "seller 2", 
+                new User(2, UserType.SELLER, "Swift", 
                 "Taylor", "seller address 2", "345678"));
             sellers.add(
-                new User(3, UserType.SELLER, "seller 3", 
-                "Wilson", "sellerAddr1", "456789"));
+                new User(3, UserType.SELLER, "Andrew", 
+                "Wilson", "seller address 3", "456789"));
         }
 
         if(users == null) {
@@ -106,7 +106,7 @@ public class DummyDBData {
                 new Order(0, customers.get(0), productsForOrder0));
 
             List<Product> productsForOrder1 = new ArrayList<>();
-            productsForOrder1.add(products.get(1));
+            productsForOrder1.add(products.get(2));
             productsForOrder1.add(products.get(3));
             orders.add(
                 new Order(1, customers.get(1), productsForOrder1));

@@ -8,27 +8,22 @@
             }
         </style>
         <script>
-            window.setInterval("reloadIFrame30k();", 30000);
-            window.setInterval("reloadIFrame500();", 500);
+            window.setInterval("refreshEvery1Sec();", 1000); // 1 sec refresh rate
 
-            function reloadIFrame30k() {
+            function refreshEvery1Sec() {
                 document.getElementById('ProductsViewId').contentWindow.location.reload();
-            }
-
-            function reloadIFrame500() {
                 document.getElementById('OrdersViewId').contentWindow.location.reload();
             }
         </script> 
     </head>
     <body>
-
-    <p>This is the sample landing page presenter</p>
-    <p>Logged in user ID: ${user.id}, name: ${user.firstName} ${user.lastName}</p>
-    <p>User role: ${user.userType}</p>
+    
+    <p><b style="font-size:200%">Welcome ${user.firstName} ${user.lastName}</b></p>
+    <p>Your user ID: ${user.id} and role: ${user.userType}</p>
         
-    <iframe src="/product/${user.id}" title="Products" id="ProductsViewId" width="45%" height="500"></iframe> 
+    <iframe src="/product/${user.id}" title="Products" id="ProductsViewId" width="48%" height="600"></iframe> 
 
-    <iframe src="/order/${user.id}" title="Orders" id="OrdersViewId" width="45%" height="500"></iframe> 
+    <iframe src="/order/${user.id}" title="Orders" id="OrdersViewId" width="48%" height="600"></iframe> 
 
     </body>
 </html>
