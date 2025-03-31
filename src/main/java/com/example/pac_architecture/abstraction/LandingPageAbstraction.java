@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 import com.example.pac_architecture.db.DummyDBData;
 import com.example.pac_architecture.model.User;
 
-
-
 /**
  * This class serves as an abstraction layer for the landing page,  
  * providing methods to interact with user data.
