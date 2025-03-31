@@ -43,7 +43,7 @@ public class LandingPageAbstractionTests {
     // Test retrieving a seler
     @Test
 	void sellerTest() throws Exception {
-        int sellerId = 1;
+        int sellerId = 2;
         User seller = landingPageAbstraction.getUser(sellerId);
         assertEquals(sellerId, seller.getId());
         assertEquals(UserType.SELLER, seller.getUserType());

@@ -41,7 +41,7 @@ public class ProductAbstractionTests {
 	void getAllProductsForCustomerTest() throws Exception {
         List<Product> products = productAbstraction.getAllProducts();
         assertEquals("Product0", products.get(0).getName());
-        assertEquals("sellerFName0", products.get(0).getSeller().getFirstName());
+        assertEquals("seller 2", products.get(0).getSeller().getFirstName());
 	}
 
     // Test retrieving products listed by a seller for the seller sub-view

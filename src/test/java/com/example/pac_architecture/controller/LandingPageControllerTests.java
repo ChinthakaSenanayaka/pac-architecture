@@ -33,7 +33,7 @@ class LandingPageControllerTests {
 				String.class))
 				.contains("This is the sample landing page presenter")
 				.contains("user ID: 1")
-				.contains("User role: SELLER");
+				.contains("User role: CUSTOMER");
 	}
 
 	// Tests presenting the landing page by the controller for the customer based on the login
@@ -43,7 +43,7 @@ class LandingPageControllerTests {
 				String.class))
 				.contains("This is the sample landing page presenter")
 				.contains("user ID: 2")
-				.contains("User role: CUSTOMER");
+				.contains("User role: SELLER");
 	}
 
 }

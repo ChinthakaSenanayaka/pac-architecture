@@ -32,10 +32,10 @@ class OrderControllerTests {
 		assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/order/1",
 				String.class))
 				.contains("This is the sample order presenter")
-				.contains("Product0")
-				.contains("custFName0")
 				.contains("Product1")
-				.contains("custFName1");
+				.contains("customer 1")
+				.doesNotContain("Product0")
+				.doesNotContain("customer 0");
 	}
 
 	// Tests presenting the order sub-page by the controller with the orders by the customer
@@ -44,9 +44,11 @@ class OrderControllerTests {
 		assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/order/2",
 				String.class))
 				.contains("This is the sample order presenter")
+				.contains("Product0")
 				.contains("Product1")
-				.contains("custFName1")
-				.doesNotContain("custFName0");
+				.contains("customer 0")
+				.contains("customer 1")
+				.doesNotContain("customer 2");
 	}
 
 }
