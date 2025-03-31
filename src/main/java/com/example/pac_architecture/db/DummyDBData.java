@@ -64,7 +64,7 @@ public class DummyDBData {
                 "Taylor", "seller address 2", "345678"));
             sellers.add(
                 new User(3, UserType.SELLER, "seller 3", 
-                "Wilson", "sellerAddr1", "456789"));
+                "Wilson", "seller address 3", "456789"));
         }
 
         if(users == null) {
@@ -106,7 +106,7 @@ public class DummyDBData {
                 new Order(0, customers.get(0), productsForOrder0));
 
             List<Product> productsForOrder1 = new ArrayList<>();
-            productsForOrder1.add(products.get(1));
+            productsForOrder1.add(products.get(2));
             productsForOrder1.add(products.get(3));
             orders.add(
                 new Order(1, customers.get(1), productsForOrder1));

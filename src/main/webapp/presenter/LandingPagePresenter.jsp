@@ -8,14 +8,10 @@
             }
         </style>
         <script>
-            window.setInterval("reloadIFrame30k();", 30000);
-            window.setInterval("reloadIFrame500();", 500);
+            window.setInterval("refreshEvery1Sec();", 1000); // 1 sec refresh rate
 
-            function reloadIFrame30k() {
+            function refreshEvery1Sec() {
                 document.getElementById('ProductsViewId').contentWindow.location.reload();
-            }
-
-            function reloadIFrame500() {
                 document.getElementById('OrdersViewId').contentWindow.location.reload();
             }
         </script> 

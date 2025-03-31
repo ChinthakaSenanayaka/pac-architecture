@@ -25,7 +25,11 @@
             <tr>      
                 <td>${order.id}</td>
                 <td>${order.customer.firstName}</td>
-                <td>${order.products[0].name}</td>
+                <td>
+                  <c:forEach items="${order.products}" var="product">
+                    ${product.name},
+                  </c:forEach>
+                </td>
             </tr>
           </c:forEach>
         </table>
