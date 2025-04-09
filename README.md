@@ -35,3 +35,15 @@ This project demonstrates PAC architecture
 
 ## Stop the PAC demo application server
 1. Press Ctrl + c to exit server command prompt
+
+## Testing plan and test report
+### Testing plan
+1. Testing plan can be found in "src/test/main"
+2. Tests are organized into packages for controller and abstraction.
+3. Testing on PAC Presentation is not possibile since Presentation is on the browser and needs browser testing tools such as Selenium, etc. which makes the project complex.
+3. There are 20 test cases all together covering all the business use cases.
+4. Each use case has self-descriptive test name as well as code comment explaining the testing scenario.
+
+### Testing report
+1. Testing report is generated and shown on the command line (or terminal) when the "run.sh" or "run.bat" files are run.
+3. PAC server will be started and ready to use only if the tests were succeeded.
